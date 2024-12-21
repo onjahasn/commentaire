@@ -1,0 +1,7 @@
+<!-- src/app/components/commentaires/commentaires.component.html -->
+<div *ngFor="let commentaire of commentaires">
+    <div class="card">
+        <p>{{ commentaire.description }}</p>
+        <small>{{ commentaire.createdAt | date }}</small>
+    </div>
+</div>
