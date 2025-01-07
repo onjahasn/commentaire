@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommentairesComponent } from './commentaires/commentaires.component';
@@ -11,7 +11,7 @@ import { CommentairesComponent } from './commentaires/commentaires.component';
     RouterOutlet,
     CommonModule,
     HttpClientModule,
-    CommentairesComponent
+    CommentairesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

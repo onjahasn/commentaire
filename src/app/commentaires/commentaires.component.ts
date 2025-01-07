@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CommentairesComponent implements OnInit {
   commentaires: Commentaire[] = [];
+  loading: boolean = false;
 
   constructor(private commentaireService: CommentaireService) {}
   ngOnInit(): void {
@@ -22,6 +23,21 @@ export class CommentairesComponent implements OnInit {
         this.commentaires = data;
       });
   }
+
+  deleteComment(id: number): void {
+    if (confirm('Voulez-vous vraiment supprimer ce commentaire ?')) {
+      this.commentaireService.deleteComment(id).subscribe({
+        next: () => {
+          // Supprimer localement le commentaire de la liste
+          this.commentaires = this.commentaires.filter(
+            (commentaire) => commentaire.id !== id
+          );
+          alert('Commentaire supprimé avec succès.');
+        },
+      });
+    }
+  }
 }
+
 
 

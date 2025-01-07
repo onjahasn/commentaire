@@ -15,4 +15,8 @@ export class CommentaireService {
   getCommentaires(): Observable<Commentaire[]> {
     return this.http.get<Commentaire[]>(this.apiUrl);
   }
+
+  deleteComment(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }
